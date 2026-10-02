@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {{ store_name }} | AI Store
+    </title>
+
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        :root {
+            --page-bg: #f5f7fb;
+            --text-main: #172033;
+            --primary: #5b5cf0;
+            --card-radius: 22px;
+        }
+
+
+        body {
+            background: var(--page-bg);
+            color: var(--text-main);
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+        }
+
+
+        .hero {
+            overflow: hidden;
+            border-radius: 28px;
+            padding: 48px;
+            color: white;
+
+            background:
+                radial-gradient(
+                    circle at 90% 15%,
+                    rgba(255,255,255,.20),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 10% 90%,
+                    rgba(255,255,255,.12),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #171a3b 0%,
+                    #3b3eaa 55%,
+                    #6567ef 100%
+                );
+
+            box-shadow:
+                0 20px 50px
+                rgba(35,39,100,.18);
+        }
+
+
+        .hero h1 {
+            font-size:
+                clamp(2rem, 5vw, 3.5rem);
+
+            font-weight: 800;
+
+            letter-spacing: -1.5px;
+        }
+
+
+        .hero p {
+            max-width: 650px;
+            color: rgba(255,255,255,.78);
+            font-size: 1.05rem;
+        }
+
+
+        .azure-pill,
+        .config-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 999px;
+            background: rgba(255,255,255,.12);
+            border:
+                1px solid
+                rgba(255,255,255,.18);
+            font-size: .85rem;
+        }
+
+
+        .azure-pill {
+            padding: 8px 14px;
+            margin-bottom: 20px;
+        }
+
+
+        .config-pill {
+            padding: 8px 12px;
+            margin: 4px 4px 0 0;
+        }
+
+
+        .section-title {
+            font-weight: 800;
+            letter-spacing: -.5px;
+        }
+
+
+        .ai-card,
+        .config-card {
+            border: 0;
+            border-radius: var(--card-radius);
+            background: white;
+
+            box-shadow:
+                0 12px 35px
+                rgba(24,34,62,.08);
+
+            overflow: hidden;
+        }
+
+
+        .ai-card-header {
+            padding: 22px 24px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #eef0ff,
+                    #f7f7ff
+                );
+
+            border-bottom:
+                1px solid
+                #eceefe;
+        }
+
+
+        .ai-icon {
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 15px;
+
+            background:
+                var(--primary);
+
+            color: white;
+
+            font-size: 1.45rem;
+            flex-shrink: 0;
+        }
+
+
+        .recommendation-text {
+            white-space: pre-line;
+            line-height: 1.65;
+            color: #374151;
+            margin-bottom: 0;
+        }
+
+
+        .live-dot {
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: #20c997;
+
+            display: inline-block;
+
+            box-shadow:
+                0 0 0 5px
+                rgba(32,201,151,.12);
+        }
+
+
+        .product-card {
+            height: 100%;
+            border: 0;
+            border-radius: var(--card-radius);
+            background: white;
+
+            box-shadow:
+                0 8px 25px
+                rgba(24,34,62,.06);
+
+            transition:
+                transform .18s ease,
+                box-shadow .18s ease;
+        }
+
+
+        .product-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 16px 35px
+                rgba(24,34,62,.11);
+        }
+
+
+        .product-icon {
+            width: 62px;
+            height: 62px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+
+            background: #f1f2ff;
+
+            font-size: 1.8rem;
+
+            margin-bottom: 18px;
+        }
+
+
+        .product-name {
+            font-weight: 750;
+            min-height: 48px;
+        }
+
+
+        .old-price {
+            color: #9ca3af;
+            text-decoration: line-through;
+        }
+
+
+        .new-price {
+            color: #168a5b;
+            font-weight: 800;
+            font-size: 1.4rem;
+        }
+
+
+        .normal-price {
+            font-weight: 800;
+            font-size: 1.4rem;
+        }
+
+
+        .status-badge {
+            font-size: .78rem;
+            padding: 8px 11px;
+            border-radius: 999px;
+        }
+
+
+        .countdown {
+            font-variant-numeric:
+                tabular-nums;
+        }
+
+
+        .footer-text {
+            color: #9ca3af;
+            font-size: .82rem;
+        }
+
+
+        @media (max-width: 767px) {
+
+            .hero {
+                padding: 32px 24px;
+                border-radius: 22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container py-4 py-md-5">
+
+
+    <!-- ===================================================== -->
+    <!-- HERO -->
+    <!-- ===================================================== -->
+
+    <section class="hero mb-4 mb-md-5">
+
+        <div class="azure-pill">
+
+            <span>☁️</span>
+
+            <span>
+                Azure App Configuration + AI
+            </span>
+
+        </div>
+
+
+        <h1 class="mb-3">
+            {{ store_name }}
+        </h1>
+
+
+        <p class="mb-4">
+
+            Una pequeña tienda inteligente donde
+            la configuración vive fuera del código
+            y la IA ayuda a descubrir productos.
+
+        </p>
+
+
+        <div>
+
+            <span class="config-pill">
+                ⚙️ {{ products|length }} productos
+            </span>
+
+
+            {% if discount %}
+
+            <span class="config-pill">
+                🔥 Descuentos activos
+            </span>
+
+            {% else %}
+
+            <span class="config-pill">
+                Descuentos desactivados
+            </span>
+
+            {% endif %}
+
+
+            {% if ai_enabled %}
+
+            <span class="config-pill">
+                🤖 AI activa
+            </span>
+
+            {% else %}
+
+            <span class="config-pill">
+                AI desactivada
+            </span>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+
+    <!-- ===================================================== -->
+    <!-- AI WELCOME -->
+    <!-- ===================================================== -->
+
+    {% if ai_message %}
+
+    <section class="ai-card mb-4">
+
+        <div class="ai-card-header">
+
+            <div class="d-flex align-items-center gap-3">
+
+                <div class="ai-icon">
+                    ✨
+                </div>
+
+                <div>
+
+                    <div class="fw-bold">
+                        Bienvenido a la tienda
+                    </div>
+
+                    <div class="small text-muted">
+                        Mensaje generado por Azure AI
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="p-4">
+
+            <p class="mb-0 text-secondary">
+                {{ ai_message }}
+            </p>
+
+        </div>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- ===================================================== -->
+    <!-- AI RECOMMENDATION -->
+    <!-- ===================================================== -->
+
+    {% if recommendation_enabled and ai_enabled %}
+
+    <section class="ai-card mb-5">
+
+
+        <div class="ai-card-header">
+
+
+            <div
+                class="d-flex
+                       justify-content-between
+                       align-items-center
+                       gap-3"
+            >
+
+                <div
+                    class="d-flex
+                           align-items-center
+                           gap-3"
+                >
+
+                    <div class="ai-icon">
+                        🤖
+                    </div>
+
+                    <div>
+
+                        <div class="fw-bold">
+                            Recomendación inteligente
+                        </div>
+
+                        <div class="small text-muted">
+                            La AI analiza los productos disponibles
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="d-none d-sm-flex
+                           align-items-center
+                           gap-2
+                           small text-success"
+                >
+
+                    <span class="live-dot"></span>
+
+                    <span>LIVE</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="p-4">
+
+
+            <p
+                id="aiRecommendation"
+                class="recommendation-text"
+            >
+
+                Analizando los productos disponibles...
+
+            </p>
+
+
+            <div
+                class="mt-4
+                       d-flex
+                       flex-wrap
+                       justify-content-between
+                       align-items-center
+                       gap-2"
+            >
+
+                <small class="text-muted">
+
+                    Configurado desde Azure App Configuration:
+
+                    <strong>
+
+                        <span id="refreshSeconds">
+                            {{ refresh_seconds }}
+                        </span>
+
+                        s
+
+                    </strong>
+
+                </small>
+
+
+                <small class="text-muted">
+
+                    Próxima recomendación en
+
+                    <strong
+                        id="countdown"
+                        class="countdown"
+                    >
+
+                        {{ refresh_seconds }}
+
+                    </strong>
+
+                    s
+
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- ===================================================== -->
+    <!-- PRODUCTS -->
+    <!-- ===================================================== -->
+
+    <section class="mb-5">
+
+
+        <div
+            class="d-flex
+                   flex-column
+                   flex-md-row
+                   justify-content-between
+                   align-items-md-end
+                   gap-2
+                   mb-4"
+        >
+
+            <div>
+
+                <div
+                    class="text-uppercase
+                           small
+                           fw-bold
+                           text-primary
+                           mb-1"
+                >
+                    Nuestra selección
+                </div>
+
+                <h2 class="section-title mb-1">
+                    Productos destacados
+                </h2>
+
+                <p class="text-muted mb-0">
+                    {{ products|length }}
+                    productos disponibles ahora
+                </p>
+
+            </div>
+
+
+            {% if discount %}
+
+            <span
+                class="badge
+                       bg-success
+                       status-badge
+                       align-self-start
+                       align-self-md-auto"
+            >
+                🔥 20% de descuento
+            </span>
+
+            {% endif %}
+
+        </div>
+
+
+        {% if products %}
+
+        <div class="row g-4">
+
+
+            {% for product in products %}
+
+            <div class="col-12 col-sm-6 col-lg-3">
+
+
+                <div class="product-card p-4">
+
+
+                    <div class="product-icon">
+                        {{ product.icon }}
+                    </div>
+
+
+                    <h5 class="product-name mb-3">
+                        {{ product.name }}
+                    </h5>
+
+
+                    {% if discount %}
+
+                    <div class="mb-1">
+
+                        <span
+                            class="badge
+                                   bg-danger
+                                   status-badge"
+                        >
+                            20% OFF
+                        </span>
+
+                    </div>
+
+
+                    <div class="old-price mt-2">
+                        ${{ "%.2f"|format(product.price) }}
+                    </div>
+
+
+                    <div class="new-price">
+                        ${{ "%.2f"|format(product.discount_price) }}
+                    </div>
+
+
+                    {% else %}
+
+
+                    <div class="small text-muted">
+                        Precio
+                    </div>
+
+
+                    <div class="normal-price">
+                        ${{ "%.2f"|format(product.price) }}
+                    </div>
+
+
+                    {% endif %}
+
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+
+        </div>
+
+
+        {% else %}
+
+
+        <div
+            class="alert
+                   alert-warning
+                   rounded-4
+                   border-0"
+        >
+            No hay productos disponibles
+            con la configuración actual.
+        </div>
+
+
+        {% endif %}
+
+    </section>
+
+
+    <!-- ===================================================== -->
+    <!-- RUNTIME CONFIGURATION -->
+    <!-- ===================================================== -->
+
+    <section
+        class="config-card
+               bg-white
+               p-4"
+    >
+
+
+        <div
+            class="row
+                   align-items-center
+                   g-3"
+        >
+
+
+            <div class="col-md">
+
+
+                <div
+                    class="small
+                           text-uppercase
+                           fw-bold
+                           text-muted
+                           mb-1"
+                >
+                    Runtime configuration
+                </div>
+
+
+                <h6 class="fw-bold mb-1">
+                    Configuración administrada externamente
+                </h6>
+
+
+                <p
+                    class="small
+                           text-muted
+                           mb-0"
+                >
+                    Los valores utilizados por esta aplicación
+                    provienen de Azure App Configuration.
+                </p>
+
+
+            </div>
+
+
+            <div class="col-md-auto">
+
+
+                <div
+                    class="d-flex
+                           flex-wrap
+                           gap-2"
+                >
+
+
+                    {% if discount %}
+
+                    <span
+                        class="badge
+                               bg-success
+                               status-badge"
+                    >
+                        Discount: ON
+                    </span>
+
+                    {% else %}
+
+                    <span
+                        class="badge
+                               bg-secondary
+                               status-badge"
+                    >
+                        Discount: OFF
+                    </span>
+
+                    {% endif %}
+
+
+                    <span
+                        class="badge
+                               bg-primary
+                               status-badge"
+                    >
+                        Products: {{ products|length }}
+                    </span>
+
+
+                    {% if ai_enabled %}
+
+                    <span
+                        class="badge
+                               bg-info
+                               text-dark
+                               status-badge"
+                    >
+                        AI: ON
+                    </span>
+
+                    {% else %}
+
+                    <span
+                        class="badge
+                               bg-secondary
+                               status-badge"
+                    >
+                        AI: OFF
+                    </span>
+
+                    {% endif %}
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div
+        class="text-center
+               footer-text
+               mt-4"
+    >
+        Azure App Configuration · Flask · Bootstrap · Azure AI
+    </div>
+
+
+</div>
+
+
+<!-- ========================================================= -->
+<!-- AUTO REFRESH CONTROLADO POR APP CONFIG -->
+<!-- ========================================================= -->
+
+{% if recommendation_enabled and ai_enabled %}
+
+<script>
+
+    /*
+     * El valor inicial viene de:
+     *
+     * Azure App Configuration
+     *        ↓
+     * Flask
+     *        ↓
+     * Jinja
+     *        ↓
+     * JavaScript
+     */
+
+    let refreshSeconds =
+        {{ refresh_seconds }};
+
+
+    let countdown =
+        refreshSeconds;
+
+
+    let recommendationTimer =
+        null;
+
+
+    const recommendationElement =
+        document.getElementById(
+            "aiRecommendation"
+        );
+
+
+    const countdownElement =
+        document.getElementById(
+            "countdown"
+        );
+
+
+    const refreshSecondsElement =
+        document.getElementById(
+            "refreshSeconds"
+        );
+
+
+    function scheduleRecommendation(
+        seconds
+    ) {
+
+        clearTimeout(
+            recommendationTimer
+        );
+
+
+        refreshSeconds =
+            Number(seconds);
+
+
+        if (
+            !Number.isFinite(refreshSeconds)
+            ||
+            refreshSeconds < 5
+        ) {
+
+            refreshSeconds = 5;
+
+        }
+
+
+        countdown =
+            refreshSeconds;
+
+
+        if (refreshSecondsElement) {
+
+            refreshSecondsElement.textContent =
+                refreshSeconds;
+
+        }
+
+
+        if (countdownElement) {
+
+            countdownElement.textContent =
+                countdown;
+
+        }
+
+
+        recommendationTimer =
+            setTimeout(
+
+                loadRecommendation,
+
+                refreshSeconds * 1000
+
+            );
+
+    }
+
+
+    async function loadRecommendation() {
+
+        if (!recommendationElement) {
+            return;
+        }
+
+
+        recommendationElement.textContent =
+            "Analizando los productos disponibles...";
+
+
+        try {
+
+            const response =
+                await fetch(
+
+                    "/api/recommendation",
+
+                    {
+                        cache: "no-store"
+                    }
+
+                );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    `HTTP ${response.status}`
+                );
+
+            }
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.enabled
+                &&
+                data.message
+            ) {
+
+                recommendationElement.textContent =
+                    data.message;
+
+            }
+
+            else {
+
+                recommendationElement.textContent =
+                    "La recomendación de AI está "
+                    + "desactivada en la configuración actual.";
+
+            }
+
+
+            /*
+             * Este valor viene desde Flask.
+             *
+             * Flask lo obtiene de:
+             *
+             * Azure App Configuration
+             *
+             * AI_Refresh_seconds
+             */
+
+            scheduleRecommendation(
+                data.refresh_seconds
+            );
+
+        }
+
+
+        catch (error) {
+
+            console.error(
+                "Error obteniendo recomendación:",
+                error
+            );
+
+
+            recommendationElement.textContent =
+                "No fue posible obtener una "
+                + "recomendación en este momento.";
+
+
+            scheduleRecommendation(
+                refreshSeconds
+            );
+
+        }
+
+    }
+
+
+    setInterval(
+
+        () => {
+
+            if (countdown > 0) {
+                countdown -= 1;
+            }
+
+            if (countdownElement) {
+                countdownElement.textContent =
+                    countdown;
+            }
+
+        },
+
+        1000
+
+    );
+
+
+    // Primera ejecución.
+    loadRecommendation();
+
+</script>
+
+{% endif %}
+
+
+</body>
+
+</html>

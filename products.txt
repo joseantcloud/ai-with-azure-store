@@ -1,0 +1,101 @@
+name|price|icon
+Laptop Pro 14|1299|💻
+Laptop Air 13|999|💻
+Laptop Gaming|1599|🎮
+Monitor 24 pulgadas|199|🖥️
+Monitor 27 pulgadas|349|🖥️
+Monitor UltraWide|599|🖥️
+Teclado Mecánico|89|⌨️
+Teclado Inalámbrico|59|⌨️
+Mouse Gamer|45|🖱️
+Mouse Ergonómico|39|🖱️
+Audífonos Bluetooth|79|🎧
+Audífonos Gaming|119|🎧
+Cámara Web HD|69|📷
+Cámara Web 4K|149|📷
+Tablet 10 pulgadas|299|📱
+Tablet Pro|549|📱
+SSD 500GB|69|💾
+SSD 1TB|119|💾
+SSD 2TB|219|💾
+Memoria RAM 8GB|39|🧠
+Memoria RAM 16GB|69|🧠
+Memoria RAM 32GB|129|🧠
+Hub USB-C|29|🔌
+Hub USB-C Pro|59|🔌
+Smartwatch|149|⌚
+Smartwatch Pro|249|⌚
+Router WiFi 6|99|📡
+Router WiFi 6E|179|📡
+Impresora Multifunción|189|🖨️
+Impresora Láser|299|🖨️
+Micrófono USB|99|🎙️
+Micrófono Streaming|159|🎙️
+Parlante Bluetooth|69|🔊
+Parlante Smart|129|🔊
+Barra de Sonido|199|🔉
+Proyector Full HD|399|📽️
+Proyector 4K|799|📽️
+Disco Externo 1TB|79|💽
+Disco Externo 2TB|119|💽
+Disco Externo 4TB|199|💽
+Memoria USB 64GB|15|💾
+Memoria USB 128GB|24|💾
+Memoria USB 256GB|39|💾
+Tarjeta SD 128GB|22|💳
+Tarjeta SD 256GB|39|💳
+Power Bank 10000mAh|29|🔋
+Power Bank 20000mAh|49|🔋
+Cargador USB-C|25|🔌
+Cargador GaN 65W|59|⚡
+Cable USB-C|12|🔗
+Cable HDMI|15|🔗
+Cable Ethernet|10|🔗
+Adaptador USB-C HDMI|35|🔄
+Adaptador Bluetooth|18|🔵
+Dock USB-C|119|🧩
+Base para Laptop|49|💻
+Soporte para Monitor|79|🖥️
+Soporte para Tablet|29|📱
+Silla Gaming|299|🪑
+Escritorio Gaming|349|🗄️
+Lámpara LED|39|💡
+Lámpara Smart|69|💡
+Tira LED RGB|29|🌈
+Regleta Inteligente|39|🔌
+Enchufe Smart|19|🔌
+Cámara de Seguridad|89|📹
+Cámara Exterior|139|📹
+Timbre Inteligente|119|🔔
+Smart TV 43 pulgadas|399|📺
+Smart TV 55 pulgadas|599|📺
+Smart TV 65 pulgadas|899|📺
+Streaming Stick|49|📺
+Consola Gaming|499|🎮
+Control Inalámbrico|69|🎮
+Volante Gaming|249|🏎️
+Gamepad PC|39|🎮
+Mochila para Laptop|49|🎒
+Maletín para Laptop|39|💼
+Funda para Tablet|25|📱
+Funda para Laptop|29|💻
+Teclado Numérico|25|🔢
+Lector de Tarjetas|19|💳
+Lector Código de Barras|89|📠
+Calculadora Financiera|79|🧮
+Tablet Gráfica|99|✏️
+Tablet Gráfica Pro|249|✏️
+Monitor Portátil|229|🖥️
+SSD Externo 1TB|139|💾
+SSD Externo 2TB|249|💾
+NAS 2 Bahías|299|🗄️
+Servidor NAS 4 Bahías|549|🗄️
+Switch Gigabit 8 Puertos|39|🌐
+Switch Gigabit 16 Puertos|69|🌐
+Access Point WiFi|89|📡
+Kit Mesh WiFi|199|📡
+Router 5G|299|📶
+Mini PC|399|🖥️
+Mini PC Pro|649|🖥️
+PC de Escritorio|899|🖥️
+PC Gaming|1499|🎮

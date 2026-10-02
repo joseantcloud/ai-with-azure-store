@@ -1,0 +1,154 @@
+AZURE APP CONFIGURATION
+=======================
+
+Store_name
+Mi tienda con App
+
+Discount
+true
+
+Display_products_amount
+14
+
+AI_enabled
+true
+
+AI_Model
+gpt-5.6-luna
+
+AI_Welcome_Prompt
+Genera un mensaje corto y atractivo de bienvenida para los clientes de nuestra tienda tecnológica.
+
+AI_Recommendation_Enabled
+true
+
+AI_Refresh_seconds
+15
+
+
+DESCRIPCIÓN
+===========
+
+Store_name
+Nombre de la tienda.
+
+Discount
+Activa o desactiva el descuento del 20%.
+Valores: true / false
+
+Display_products_amount
+Cantidad de productos visibles.
+Ejemplos: 5, 10, 14, 25, 50, 100.
+
+AI_enabled
+Activa o desactiva Azure AI.
+Valores: true / false
+
+AI_Model
+Deployment/modelo utilizado por Azure AI.
+
+AI_Welcome_Prompt
+Prompt usado para generar el mensaje de bienvenida.
+
+AI_Recommendation_Enabled
+Activa o desactiva la recomendación automática.
+Valores: true / false
+
+AI_Refresh_seconds
+Intervalo de las recomendaciones de AI.
+Este valor ES CONTROLADO por Azure App Configuration.
+
+Ejemplo:
+15
+
+Luego cambiar a:
+30
+
+La siguiente respuesta de /api/recommendation devolverá:
+refresh_seconds = 30
+
+
+DIFERENCIA IMPORTANTE
+=====================
+
+AI_Refresh_seconds NO es el refresh del provider de
+Azure App Configuration.
+
+El provider usa internamente:
+
+refresh_interval = 5
+
+Ese valor controla cuándo puede comprobar cambios
+de configuración.
+
+AI_Refresh_seconds controla cuándo el navegador
+solicita una nueva recomendación de AI.
+
+
+CAMBIOS PARA EL VIDEO
+=====================
+
+Display_products_amount = 5
+Muestra 5 productos.
+
+Display_products_amount = 20
+Muestra 20 productos.
+
+Display_products_amount = 100
+Muestra los 100 productos.
+
+Discount = true
+Activa descuento.
+
+Discount = false
+Desactiva descuento.
+
+AI_enabled = true
+Activa AI.
+
+AI_enabled = false
+Desactiva AI.
+
+AI_Recommendation_Enabled = true
+Activa recomendaciones.
+
+AI_Recommendation_Enabled = false
+Desactiva recomendaciones.
+
+AI_Refresh_seconds = 15
+Nueva recomendación cada 15 segundos.
+
+AI_Refresh_seconds = 30
+Nueva recomendación cada 30 segundos.
+
+
+NO GUARDAR AQUÍ
+===============
+
+Connection String
+Azure AI API Key
+
+Este archivo solamente contiene configuración
+no sensible.
+
+
+============================================================
+CREDENCIALES DE LA DEMO LOCAL
+============================================================
+
+APP CONFIGURATION
+Azure Portal -> App Configuration -> Access keys
+Copiar: Connection string
+Pegar en app.py:
+APP_CONFIG_CONNECTION_STRING = "..."
+
+AZURE AI
+Azure AI Foundry -> proyecto -> modelo/deployment ->
+Use your model in code
+Copiar: Endpoint y Key
+Pegar en app.py:
+AZURE_AI_ENDPOINT = "..."
+AZURE_OPENAI_API_KEY = "..."
+
+Para esta demo local se mantienen directamente en app.py para que el
+ejemplo sea fácil de seguir. No usar este patrón para producción.
